@@ -1,0 +1,130 @@
+/*smooth scrolling*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/*CSS grid for page layout */
+.container {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 15px;
+    width: 100%;
+    margin: 0;
+}
+
+/* Assigning sections to grid columns */
+header, nav, footer {
+    grid-column: 1 / span 2;
+}
+
+/* Navigation Styling */
+nav {
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background-color: #04AA6D;
+}
+
+nav a i {
+    margin-right: 8px;
+}
+
+/* Section Styling */
+header { 
+    background: #04AA6D; 
+    color: white; 
+    padding: 40px 20px; 
+    text-align: center; 
+}
+
+main { 
+    background: white; 
+    padding: 30px; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+main h2 {
+    color: #04AA6D;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+aside { 
+    background: #fff; 
+    padding: 20px; 
+    border-left: 1px solid #ddd;
+}
+
+.contact-info a {
+    color: #04AA6D;
+    text-decoration: none;
+}
+
+.project-links {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.project-links li {
+    margin: 10px 0;
+}
+
+footer { 
+    background: #333; 
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+}
+
+/*Responsive Design */
+
+/* Screen width below 768px: Single column layout */
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    header, nav, main, aside, footer {
+        grid-column: 1;
+    }
+    aside {
+        border-left: none;
+        border-top: 1px solid #ddd;
+    }
+}
+
+/* Screen width below 600px: Vertical navigation */
+@media screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
